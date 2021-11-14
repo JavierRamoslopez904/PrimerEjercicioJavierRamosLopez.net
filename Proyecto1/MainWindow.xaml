@@ -1,0 +1,59 @@
+﻿<Window x:Class="Proyecto1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Proyecto1"
+        mc:Ignorable="d"
+        Title="FirstProyect" Height="450" Width="800">
+    <Grid>
+
+        <!--- Slider -->
+        <Slider 
+            Name="Slider1" 
+            HorizontalAlignment="Left"
+            Margin="86,119,0,0"
+            VerticalAlignment="Top" 
+            Height="24" Width="279" 
+            Value="10" Maximum="40"
+            Minimum="10"
+            TickFrequency="1" 
+            IsSnapToTickEnabled="True" 
+            TickPlacement="TopLeft"/>
+
+        <!--- TextBlock -->
+        <TextBlock 
+            Name="Text1" 
+            FontSize="{Binding ElementName=Slider1,
+            Path=Value,Mode=TwoWay}" 
+            HorizontalAlignment="Left" 
+            Margin="370,46,0,0"
+            TextWrapping="Wrap" 
+            Text="Javier Ramos López" 
+            VerticalAlignment="Top"
+            Height="194" Width="257" 
+            FontWeight="Heavy"/>
+
+        <!--- Botones (Alineados horizontalmente) -->
+        <WrapPanel Margin="151,245,151,130">
+            <Button Width="150" Click="smallButton" Background="Blue" Foreground="White">Letra pequeña</Button>
+            <Button Width="150" Click="mediumButton" Background="LightGreen">Letra mediana</Button>
+            <Button Width="150" Click="bigButton" Background="DeepSkyBlue" Foreground="MistyRose">Letra grande</Button>
+        </WrapPanel>
+
+        <!-- Texto -->
+        <Label 
+            Margin="163,323,303,33"
+            FontSize="30">Tamaño letra</Label>
+
+        <!-- TextBox (Muestra el valor del TextBlock) -->
+        <TextBox 
+            Margin="526,323,216,39"   
+            Name="FirstTextBox"
+            FontSize="20"
+            Text="{Binding Value, ElementName=Slider1, UpdateSourceTrigger=PropertyChanged}"
+            />
+
+    </Grid>
+
+</Window>
